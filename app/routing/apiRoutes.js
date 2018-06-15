@@ -3,7 +3,7 @@ var friendData = require("../data/friends");
 module.exports = function (app) {
 // Displays all possible friends
 app.get("/api/friends", function(req, res) {
-    return res.json(friendData);
+    return res.json(req.params.friends);
   });
   
 // Create New Friends Data - takes in JSON input
@@ -16,6 +16,6 @@ app.post("/api/friends", function(req, res) {
   
     friendData.push(newFriend);
   
-    res.json(true);
+    res.json(newFriend);
   });
 };
